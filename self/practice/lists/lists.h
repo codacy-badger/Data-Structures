@@ -13,7 +13,7 @@ typedef struct List
     int length;
 } List;
 
-List new_list();
+List *new_list();
 Node *new_node(int *element);
 
 // Adding nodes to list

@@ -3,11 +3,11 @@
 #include <stdarg.h>
 #include "lists.h"
 
-List new_list()
+List *new_list()
 {
-    List list;
-    list.head = NULL;
-    list.length = 0;
+    List *list = (List *)malloc(sizeof(List));
+    list->head = NULL;
+    list->length = 0;
 
     return list;
 }
