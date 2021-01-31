@@ -39,7 +39,7 @@ void enqueue(Queue *queue, int element)
 {
     Node *node = new_node(&element);
 
-    if (!queue->back)
+    if (!queue->front)
         queue->front = node;
     else
         queue->back->next = node;
