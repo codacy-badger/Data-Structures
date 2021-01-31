@@ -1,6 +1,8 @@
 package lists;
 
-public class List {
+import java.util.function.Consumer;
+
+public class LinkedList {
 
   private Node head = null;
   private int length;
@@ -41,6 +43,15 @@ public class List {
     }
     current.next = node;
     length++;
+  }
+
+  /**
+   * Add many nodes to a linked list entering a method such as append or push.
+   */
+  public void addMany(Consumer<Integer> method, int...values) {
+    for (int value: values) {
+      method.accept(value);
+    }
   }
 
   /**
@@ -134,7 +145,7 @@ public class List {
   }
 
   /**
-   * Get a specific node value from a position given.
+   * Get a specific node value from a given position.
    */
   public int getNodeByPosition(int position) throws Exception {
     if (position >= getLength()) {

@@ -1,5 +1,7 @@
 package lists;
 
+import java.util.function.Consumer;
+
 public class Main {
 
   /**
@@ -9,17 +11,23 @@ public class Main {
     System.out.print("\033\143");
     System.out.println("Linked List\n");
 
-    List list = new List();
-    list.append(1); // 1 -> NULL
-    list.append(2); // 1 -> 2 -> NULL
-    list.append(5); // 1 -> 2 -> 5 -> NULL
+    LinkedList list = new LinkedList();
+    Consumer<Integer> append = v -> list.append(v);
+    Consumer<Integer> push = v -> list.push(v);
+
+    list.addMany(append, 1, 2, 5);
+    list.push(0); 
     list.display();
 
-    list.push(0); // 0 -> 1 -> 2 -> 5 -> NULL
-    list.insertAt(3, 4); // 0 -> 1 -> 2 -> 4 -> 5 -> NULL
-    list.detach(); // 0 -> 1 -> 2 -> 4 -> NULL
-    list.insertAfter(2, 3); // 0 -> 1 -> 2 -> 3-> 4 -> NULL
-    list.pop(); // 1 -> 2 -> 3-> 4 -> NULL
+    list.insertAt(3, 4);
+    list.detach();
+    list.display();
+
+    list.insertAfter(2, 3);
+    list.pop();
+    list.display();
+
+    list.addMany(push, 0, -1, -2);
     list.display();
     System.out.printf("Linked list len: %d\n", list.getLength());
 
