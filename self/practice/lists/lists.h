@@ -26,9 +26,10 @@ void insert_after(unsigned int index, List *list, int element);
 void insert_into(unsigned int index, List *list, int element);
 
 // Delete nodes
+void delete_node(Node *node);
 void pop(List *list);
 void detach(List *list);
-void delete_node(unsigned int index, List *list);
+void delete_at(unsigned int index, List *list);
 
 // Display
 int get_node_value(unsigned int index, List *list);

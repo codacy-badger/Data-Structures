@@ -100,13 +100,20 @@ void insert_into(unsigned int index, List *list, int element)
     insert_after((index - 1), list, element);
 }
 
+void delete_node(Node *node)
+{
+    node->value = NULL;
+    node->next = NULL;
+    free(node);
+}
+
 void pop(List *list)
 {
     if (!list->head)
         return;
     Node *delete = list->head;
     list->head = list->head->next;
-    free(delete);
+    delete_node(delete);
     list->length--;
 }
 
@@ -126,11 +133,11 @@ void detach(List *list)
         current = current->next;
     Node *delete = current->next;
     current->next = NULL;
-    free(delete);
+    delete_node(delete);
     list->length--;
 }
 
-void delete_node(unsigned int index, List *list)
+void delete_at(unsigned int index, List *list)
 {
     if (!list->head || index >= list->length)
         return;
@@ -150,7 +157,7 @@ void delete_node(unsigned int index, List *list)
     }
     Node *delete = current->next;
     current->next = current->next->next;
-    free(delete);
+    delete_node(delete);
     list->length--;
 }
 
