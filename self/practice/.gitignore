@@ -84,3 +84,4 @@ dkms.conf
 hs_err_pid*
 misc
 .vscode/settings.json
+test.c
