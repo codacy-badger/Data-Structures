@@ -16,7 +16,7 @@ public class Main {
     Consumer<Integer> push = v -> list.push(v);
 
     list.addMany(append, 1, 2, 5);
-    list.push(0); 
+    list.push(0);
     list.display();
 
     list.insertAt(3, 4);
@@ -40,5 +40,25 @@ public class Main {
       System.exit(1);
     }
     System.out.printf("\nElement in position[%d]: %d\n", position, valueExtracted);
+
+    DoublyLinkedList list2 = new DoublyLinkedList();
+    System.out.println("\n\n------------------------------------------");
+    System.out.println("Doubly Linked List\n");
+    list2.append(2);
+    list2.append(3);
+    list2.append(4);
+    list2.append(5);
+    list2.append(6);
+    list2.push(1);
+    list2.push(0);
+    list2.display();
+
+    System.out.println("Popped Doubly Linked List\n");
+    list2.pop();
+    list2.display();
+
+    System.out.println("Detached Doubly Linked List\n");
+    list2.detach();
+    list2.display();
   }
 }
