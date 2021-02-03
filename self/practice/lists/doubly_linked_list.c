@@ -152,7 +152,7 @@ void display_from(char start_point, DoublyList *list)
     else
         current = list->tail;
 
-    printf("NULL -> ");
+    printf("NULL <- ");
     while (current)
     {
         printf("%d", current->value);
