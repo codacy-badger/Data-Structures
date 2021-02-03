@@ -13,7 +13,7 @@ public class Main {
 
     LinkedList list = new LinkedList();
     Consumer<Integer> append = v -> list.append(v);
-    Consumer<Integer> push = v -> list.push(v);
+    // Consumer<Integer> push = v -> list.push(v);
 
     list.addMany(append, 1, 2, 5);
     list.push(0);
@@ -21,17 +21,15 @@ public class Main {
 
     list.insertAt(3, 4);
     list.detach();
-    list.display();
-
     list.insertAfter(2, 3);
-    list.pop();
     list.display();
 
-    list.addMany(push, 0, -1, -2);
+    System.out.println("\nReversed list");
+    list.reversion();
     list.display();
     System.out.printf("Linked list len: %d\n", list.getLength());
 
-    int position = 2;
+    int position = 1;
     int valueExtracted = 0;
     try {
       valueExtracted = list.getNodeByPosition(position);

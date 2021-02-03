@@ -48,8 +48,8 @@ public class LinkedList {
   /**
    * Add many nodes to a linked list entering a method such as append or push.
    */
-  public void addMany(Consumer<Integer> method, int...values) {
-    for (int value: values) {
+  public void addMany(Consumer<Integer> method, int... values) {
+    for (int value : values) {
       method.accept(value);
     }
   }
@@ -161,6 +161,46 @@ public class LinkedList {
     }
 
     return current.value;
+  }
+
+  /**
+   * Reversing.
+   */
+  public void reverse() {
+    Node current = head;
+    Node next = null;
+    Node prev = null;
+
+    while (current != null) {
+      next = current.next;
+      current.next = prev;
+      prev = current;
+      current = next;
+    }
+
+    head = prev;
+  }
+
+  /**
+   * Reversing a list with recursion.
+   */
+  private Node recursionReverse(Node head) {
+    if (head == null || head.next == null) {
+      return head;
+    }
+
+    Node rest = recursionReverse(head.next);
+    head.next.next = head;
+    head.next = null;
+
+    return rest;
+  }
+
+  /**
+   * Function to call the recursive reverse function.
+   */
+  public void reversion() {
+    head = recursionReverse(head);
   }
 
   public int getLength() {
