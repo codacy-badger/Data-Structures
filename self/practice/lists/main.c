@@ -6,8 +6,7 @@ int main(int argc, char const *argv[])
     List *list = new_list();
     List *list2 = new_list();
 
-    system("clear");
-
+    printf("\033\143");
     add_many(append, 5, list, 1, 2, 3, 4, 5);
     printf("Linked List.\n");
     display_list(list);
